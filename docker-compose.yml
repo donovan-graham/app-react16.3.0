@@ -1,0 +1,16 @@
+version: '2'
+
+services:
+  app:
+    image: node:8.0.0-slim
+    volumes:
+      - .:/data
+    ports:
+      - "3000:3000"
+    working_dir: /data
+    command: ["npm", "start"]
+
+networks:
+  default:
+    external:
+      name: local

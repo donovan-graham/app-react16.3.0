@@ -1,0 +1,9 @@
+# folders
+v8-compile-cache-*
+jest_*
+dist
+node_modules
+
+# files
+**/*.log
+docker-compose.override.yml
