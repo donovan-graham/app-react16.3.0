@@ -1,9 +1,17 @@
+// @flow
 import React from 'react';
 import { Theme } from './Context';
 import Child from './Child';
 
-class App extends React.Component {
-  constructor(props) {
+type State = {
+  theme: "boomerangcs" | "dracula" | "monokai",
+};
+type Props = {};
+
+class App extends React.Component<Props, State> {
+  onClick: Function;
+
+  constructor(props: Props) {
     super(props);
     this.state = { theme: Theme.defaultValue };
     this.onClick = this.onClick.bind(this);

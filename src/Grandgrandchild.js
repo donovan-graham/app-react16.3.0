@@ -1,9 +1,12 @@
+// @flow
 import React from 'react';
+import type { Node } from 'react';
+
 import { Theme } from './Context';
 
 const Grandgrandchild = () => (
   <Theme.Consumer>
-    {theme => (
+    {(theme: string) => (
       <div id="grandgrandchild">
         <span>Grandgrandchild</span>
         <br />
