@@ -9,11 +9,7 @@
     "build": "NODE_ENV=production webpack --mode production",
     "prettier": "prettier --write \"{src,__{tests,mocks}__}/**/*.js?(x)\""
   },
-  "keywords": [
-    "react 16.3.0-alpha",
-    "webpack 4",
-    "babel 7"
-  ],
+  "keywords": ["react 16.3.0-alpha", "webpack 4", "babel 7"],
   "author": "",
   "license": "ISC",
   "dependencies": {
