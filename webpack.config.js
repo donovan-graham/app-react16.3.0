@@ -5,6 +5,7 @@ const webpack = require('webpack');
 const path = require('path');
 const fs = require('fs');
 
+const isProductionBuild = process.env.NODE_ENV === 'production';
 /*
 * Fix for loading externs: https://gist.github.com/sunzhuoshi/86f2d5a7f3330e227762b0909372ca60
 * Open github issue: https://github.com/google/closure-compiler-js/issues/66
@@ -52,7 +53,7 @@ const config = {
       }
     ]
   },
-  // devtool: 'inline-source-map',
+  devtool: isProductionBuild ? 'none' : 'inline-source-map',
   devServer: {
     contentBase: path.join(__dirname, 'dist'),
     port: 3000,
@@ -62,7 +63,7 @@ const config = {
     compress: true,
     hot: true
   },
-  plugins: process.env.NODE_ENV === 'production' ? productionPlugins : developmentPlugins,
+  plugins: isProductionBuild ? productionPlugins : developmentPlugins,
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist')
