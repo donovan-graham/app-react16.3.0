@@ -1,5 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const ClosureCompiler = require('google-closure-compiler-js').webpack;
 const webpack = require('webpack');
 const path = require('path');
 
@@ -32,8 +33,18 @@ const config = {
     new HtmlWebpackPlugin({
       template: './src/index.html'
     }),
-    new webpack.NamedModulesPlugin(),
-    new webpack.HotModuleReplacementPlugin()
+    // new webpack.NamedModulesPlugin(),
+    // new webpack.HotModuleReplacementPlugin(),
+    new ClosureCompiler({
+      options: {
+        languageIn: 'ECMASCRIPT6',
+        languageOut: 'ECMASCRIPT5',
+        compilationLevel: 'SIMPLE',
+        warningLevel: 'VERBOSE',
+        processCommonJsModules: true,
+        externs: [{ path: './externs.js' }]
+      }
+    })
   ],
   output: {
     filename: 'bundle.js',
