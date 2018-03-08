@@ -9,7 +9,11 @@
     "build": "webpack --mode production --optimize-minimize",
     "prettier": "prettier --write \"{src,__{tests,mocks}__}/**/*.js?(x)\""
   },
-  "keywords": ["react 16.3.0-alpha", "webpack 4", "babel 7"],
+  "keywords": [
+    "react 16.3.0-alpha",
+    "webpack 4",
+    "babel 7"
+  ],
   "author": "",
   "license": "ISC",
   "dependencies": {
@@ -18,6 +22,7 @@
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
     "clean-webpack-plugin": "^0.1.18",
+    "date-fns": "^1.29.0",
     "html-webpack-plugin": "^3.0.6",
     "prettier": "1.11.1",
     "prop-types": "^15.6.1",
