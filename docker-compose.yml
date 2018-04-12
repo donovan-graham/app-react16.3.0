@@ -2,7 +2,7 @@ version: '2'
 
 services:
   app:
-    image: node:8.0.0-slim
+    image: node:9.8.0-slim
     volumes:
       - .:/data
     ports:

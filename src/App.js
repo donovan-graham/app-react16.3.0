@@ -4,19 +4,23 @@ import format from 'date-fns/format';
 import isToday from 'date-fns/is_today';
 // import {parse, format, isToday} from 'date-fns/esm' <-- upcoming release v2.0.0
 
-import { Theme } from './Context';
+import Theme from './Context';
 import Child from './Child';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { theme: Theme.defaultValue };
-    this.onClick = this.onClick.bind(this);
+    this.toggleTheme = this.toggleTheme.bind(this);
+
+    this.state = {
+      theme: 'dracula',
+      toggleTheme: this.toggleTheme
+    };
   }
 
-  onClick() {
+  toggleTheme() {
     this.setState(state => ({
-      theme: state.theme === 'dracula' ? 'monokai' : state.theme === 'monokai' ? Theme.defaultValue : 'dracula'
+      theme: state.theme === 'dracula' ? 'monokai' : 'dracula'
     }));
   }
 
@@ -26,12 +30,13 @@ class App extends React.Component {
     const todayStr = isToday(date) ? 'Today' : 'Not today';
 
     return (
-      <Theme.Provider value={this.state.theme}>
+      <Theme.Provider value={this.state}>
         <span>
           {dateStr} ? {todayStr}
         </span>
         <br />
-        <button onClick={this.onClick}>Change Theme</button>
+        Theme: <b>{this.state.theme}</b>
+        <button onClick={this.state.toggleTheme}>Change Theme</button>
         <div id="parent">
           <span>Parent</span>
           <br />

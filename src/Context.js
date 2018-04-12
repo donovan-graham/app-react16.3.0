@@ -1,2 +1,5 @@
 import React from 'react';
-export const Theme = React.createContext('boomerang');
+export default React.createContext({
+  theme: 'dracula',
+  toggleTheme: () => {}
+});
